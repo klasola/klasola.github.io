@@ -12,37 +12,84 @@
     <meta name="viewport" content="initial-scale=1">
     <meta charset="UTF-8">
 
-    <title>Kalley Lasola</title>
+    <title>ChessSweeper</title>
     <!-- CSS FILE(S) -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.min.css" type="text/css" />
   </head>
 
   <body>
     <div id="main-wrapper">
-      <div id="content-wrapper">
-        <div id="profile-content">
-          <div class="p-title">Kalley Lasola</div>
-          <div id="p-icon"></div>
-          <div class="p-text">Research programmer at <a href="http://kcvs.ca" target="_blank">The King's Center for Visualization in Science</a>.
-          <br>
-          4th year B.Sc. Computer Science student with a minor in English.</div>
-          <div class="socials">
-            <a href="https://github.com/klasola" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/kalley-lasola/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/kalley.jpg/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <div id="main-container">
+        <div id="header-container">
+          <img src="/img/logo.png" class="logo">
+        </div>
+
+        <div id="game-container">
+          <div id="control-container">
+            <h2><u>ChessSweeper</u></h2>
+            <button>New Game</button>
+            <button onclick="game.showPage('rules');">Rules</button>
+            <button onclick="game.showPage('about');">About</button>
+          </div>
+
+          <div id="board-container">
+            <div id="board"></div>
+            <div id="rules" class="info-page">
+              <br><br>
+              <button onclick="game.hidePage('rules');">x</button>
+              <br>
+              <p>In this explosive variant of chess, instead of only focusing on capturing pieces, players must also pay attention to pieces getting blown up.</p>
+              <h3>Rules</h3>
+              <p>To begin the game, each player must place 6 mines anywhere on their half of the board. When a player moves their piece to the opponent's half of the board, there are 2 possibilities:</p>
+              <ol>
+                <li>If the target square has a mine, their piece is blown up.</li>
+                <li>If there are no mines on the target square, the number of mines surrounding the space is displayed. </li>
+              </ol>
+
+              <ul>
+                <li>If the move was intended to be a capture, the opponent's piece on the target square will also blow up.</li>
+                <li>If there are no adjacent mines, nothing is displayed.</li>
+                <li>Adjacent mine numbers disappear once a piece moves off the square.</li>
+                <li>If a player's king piece is moved on a mine, the player loses.</li>
+              </ul>
+            </div>
+
+            <div id="about" class="info-page">
+              <br><br>
+              <button onclick="game.hidePage('about');">x</button>
+              <br>
+              <p>Kalley Lasola</p>
+              <p>Version 1.0.0 — January 2021</p>
+              <hr>
+              <h3>Credit</h3>
+              <p>Based on <a href="https://www.chessvariants.com/rules/minesweeper-chess" target="_blank">this</a> idea by <a href="https://www.chessvariants.com/who/flowermann" target="_blank">Daniil Frolov</a>.</p>
+              <hr>
+              <p><a href="mailto:kalleylaso@gmail.com">Contact me</a></p>
+            </div>
+          </div>
+
+          <div id="player-container">
+            <div id="player2-container">
+              <p>Player 2</p>
+              <div id="player2-mines" class="mines"></div>
+            </div>
+            <div id="filler"></div>
+            <div id="player1-container">
+              <div id="player1-mines" class="mines"></div>
+              <p>Player 1</p>
+            </div>
           </div>
         </div>
-        <div id="projects-content">
-          <div class="p-title" style="grid-column: 1 / span 4; font-size: 1.5vw;">Projects</div>
-        </div>
+
+        <div id="footer-container"></div>
       </div>
     </div>
 
     <!-- JAVASCRIPT FILE(S) -->
     <script src="https://lib.kcvs.ca/jquery-3.3.1.min.js"></script>
     <script src="https://kit.fontawesome.com/8c35176bbf.js" crossorigin="anonymous"></script>
-    <script src="lib/projects.js"></script>
     <script src="lib/main.min.js"></script>
   </body>
 

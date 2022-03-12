@@ -3,83 +3,227 @@
    DATE MODIFIED: Mar 9, 2022 */
 
 :root {
-    --main-bg-color-dark: #212529;
-    --secondary-bg-color: #fca311;
-    --secondary-comp-color: #FFC15E;
-    --third-bg-color: #13b35b;
-    --fourth-bg-color: #D6FFB7;
+    --main-bg-color: #d4e3d8;
 }
 
 body, html, #main-container {
-    height: 100%;
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: 'Fira Code', monospace;
+    color: #818181;
 }
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: #5a8169;
+}
+
+#about-container, 
+#projects-container, 
+#contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    padding: 8% 10% 2% 10%;
+}
+
+#projects-container,
+#contact-container {
+    flex-direction: column;
+    padding: 5% 10% 5% 10%;
+}
+
+.blinking {
+    opacity: 1;
+}
+
+.content-block {
+    display: none !important;
+}
+
+.active-content-block {
+    display: flex !important;
+}
+
+.content-column {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+}
+
+.content-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.circle-img {
+    width: 100%;
+    border-radius: 50%;
+    padding: 5%;
+    box-shadow: #7cbe90 0px 0px 8px;
+}
+
+#contact-icons {
+    display: flex;
+    flex-direction: row;
+}
+
+#contact-icons>a {
+    padding: 5px;
+}
+
+#email_form {
+    display: flex;
+    flex-direction: column;
+}
+
+#email_form>* {
+    margin: 5px;
 }
 
 #main-container {
     width: 100%;
-    background-color: var(--main-bg-color-dark);
+}
+
+#nav-container {
+    background-color: var(--main-bg-color);
 }
 
 .title {
-    margin: auto;
-    text-align: center;
-    font-size: 20px;
+    font-size: 38px;
     font-weight: bolder;
-    font-style: italic;
-    text-shadow: black 2px 2px 3px;
-    /* padding: 20px 5px; */
 }
 
-.secondary-bg-color {
-    color: var(--secondary-bg-color);
+.half-column {
+    width: 40%;
 }
 
-.third-comp-color { 
-    color: var(--third-bg-color);
+#footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    padding: 5%;
 }
 
+.gradient-text {
+    background: -webkit-linear-gradient(#eee, #47aa6a);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#resume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#resume a:hover {
+    color: #fff !important;
+}
+
+/* FONTS */
+
+.large-font {
+    font-size: 45px;
+}
+
+.medium-font {
+    font-size: 25px;
+}
+
+.small-font {
+    font-size: 15px;
+}
+
+.code-font {
+    font-family: 'Fira Code', monospace !important;
+}
+
+.pen-font {
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.display-font {
+    font-family: 'Supermercado One', cursive;
+}
+
+.normal-font {
+    font-family: 'Fira Sans', sans-serif;
+}
 
 
 /*----------------------*/
 /* BOOTSTRAP OVERWRITES */
 /*----------------------*/
 
-.carousel-caption {
-    background-color: rgb(79 79 79 / 52%);
-    border-radius: 4px;
-    margin: 45px 10px;
-    right: 8%;
-    left: 8%;
-    padding: 1.25rem;
+.carousel {
+    max-width: 288px;
+    min-height: 436px;
 }
 
-.carousel-inner {
-    width: 45%;
-    margin: 0 auto;
-    max-height: 500px;
-    min-height: 500px;
+.carousel-control-next {
+    right: -40px;
 }
 
-.navbar-nav {
-    margin: auto;
-    font-size: 22px;
+.carousel-indicators {
+    filter: brightness(0.5);
+    bottom: -40px;
+}
+
+.carousel-control-next {
+    right: -50px;
+    filter: brightness(0);
+}
+
+.carousel-control-prev {
+    left: -50px;
+    filter: brightness(0);
 }
 
 .nav-link {
+    color: #878787;
+    font-family: 'Fira Sans', sans-serif;
     padding-right: 2.5rem !important;
     padding-left: 2.5rem !important;
 }
 
-.w-100 {
-    filter: brightness(70%);
+.nav-link:hover {
+    color: #5a8169;
+}
+
+.text-info {
+    color: #7ec093 !important
+}
+
+
+/*----------------------*/
+/*   MEDIA OVERWRITES   */
+/*----------------------*/
+
+@media only screen and (max-width: 600px) {
+    #about-container, .nav {
+        flex-direction: column;
+    }
+
+    .carousel-control-next {
+        right: -38px;
+    }
+    
+    .carousel-control-prev {
+        left: -38px;
+    }
+
+    .nav {
+        text-align: center;
+    }
+
+    .half-column {
+        width: 100%;
+    }
 }

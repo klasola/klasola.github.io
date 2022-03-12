@@ -2,8 +2,9 @@
 <!-- AUTHOR: Kalley Lasola -->
 <!-- DATE: Mar 9, 20222  -->
 
-<!-- TODO: Minify src files -->
+<!-- TODO: Clean up css -->
 <!-- TODO: Test multiple browsers -->
+<!-- TODO: Add github projects -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,88 +15,103 @@
     <title>Kalley Lasola—Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap" rel="stylesheet">
+    <!-- FONTS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/src/css/index-styling.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body>
     <div id="main-container">
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link"href="#project-carousel">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div>
-            <p class="title third-comp-color">Projects</p>
+        <div id="nav-container">
+            <ul class="nav justify-content-center sticky-top nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" content-block="about">About Me</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" content-block="projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" content-block="contact">Contact</a>
+                </li>
+            </ul>
         </div>
 
-        <div id="project-carousel" class="carousel slide" data-bs-ride="carousel">
-            <!-- Image dimensions: 820 x 632 px -->
-            <!-- TODO: Inject all this w js frfr -->
-            <!-- TODO: Vertically center slide descrips -->
+        <div id="content-container">
+            <div id="about-container" class="content-block active-content-block">
+                <div class="content-column half-column">
+                    <div class="code-font title gradient-text">Hello World<span class="blinking">_</span></div>
+                    <div class="display-font large-font">Kalley Lasola</div>
+                    <div class="display-font medium-font">Software Developer</div>
+                    <div class="normal-font small-font"><p>BSc. Computer Science '21</p></div>
+                    <div class="normal-font small-font">Experienced programmer with a strength in front end development—work includes <span class="text-info">climate education web applications</span> that are annually accessed by over half a million visitors from over one hundred countries; as well as <span class="text-info">web & iOS widgets</span> that have increased revenue by the hundred millions for multiple enterprise companies.</div>
+                </div>
+                <div class="content-column">
+                    <div>
+                        <img class="circle-img" src="/src/assets/img/profile.jpeg">
+                    </div>
+                </div>
+            </div>
 
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#project-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#project-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#project-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <div id="projects-container" class="content-block">
+                <div class="display-font large-font">Projects</div>
+                <div class="normal-font small-font">A highlight reel of projects I've worked on. Click launch to learn more about them!</div>
+                <div class="normal-font small-font">Visit <a href="https://kcvs.ca/cards.html?authors=Kalley%20Lasola" target="_blank"><span class="text-info">here</span></a> for a complete list of my KCVS projects</div>
+                <br>
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                    </div>
+                    <div class="carousel-inner"></div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="/src/assets/img/docs-preview.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Design Our Climate simulation (DOCs)</h5>
-                  <p><a href="https://climatesolutions.kcvs.ca/" target="_blank">Launch DOCs!</a></p>
+
+            <div id="contact-container" class="content-block">
+                <div class="display-font large-font">Contact</div>
+                <div class="normal-font small-font">Connect with me on LinkedIn or shoot me a message below:</div>
+                <div id="contact-icons">
+                    <a href="https://www.linkedin.com/in/kalley-lasola/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="mailto:kalleylaso@gmail.com" target="_blank"><i class="bi bi-envelope-fill"></i></a>
                 </div>
-              </div>
-              <div class="carousel-item">
-                <img src="/src/assets/img/vgcc-preview.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Visualizing Global Climate Change</h5>
-                  <p><a href="http://applets.kcvs.ca/visualizingGlobalClimateChange/visualizingGlobalClimateChange.html" target="_blank">Launch VGCC!</a></p>
+
+                <div id="contact-form">
+                    <form action="https://postmail.invotes.com/send" method="post" id="email_form">
+                        <input type="text" name="subject" placeholder="Subject" />
+                        <textarea name="text" placeholder="Message"></textarea>
+                        <input type="hidden" name="access_token" value="lxnb3cj6cr09j956tcsp2bl4" />
+                        <!-- return urls can be fully qualified -OR- start with / for root relative -OR- start with . for url relative --> 
+                        <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
+                        <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
+                        <input type="text" name="reply_to" placeholder="Your Email" /> 
+                        <!-- <input type="hidden" name="sms_format" value="true" /> -->
+                        <input id="submit_form" type="submit" value="Send" />
+                        <p>Powered by <a href="https://postmail.invotes.com" target="_blank">PostMail</a></p>
+                    </form>
                 </div>
-              </div>
-              <div class="carousel-item">
-                <img src="/src/assets/img/bap-preview.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Planetary Climates - Build A Planet</h5>
-                  <p><a href="https://applets.kcvs.ca/BuildAPlanet/intro-lesson/intro_1.html" target="_blank">Launch Build A Planet!</a></p>
-                </div>
-              </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#project-carousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#project-carousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
         </div>
 
-        <div>
-            <p class="title third-comp-color">About Me</p>
-        </div>
+        <div id="resume"><button type="button" class="btn btn-outline-success"><i class="bi bi-download"></i>&nbsp;&nbsp;&nbsp;<a href="/src/assets/doc/Kalley_Lasola Resume_2022.pdf" download>Resume</a></button></div>
 
-        <div>
-            <p class="title third-comp-color">Contact</p>
+        <div id="footer-container">
+            <p>Version 1.0.0 - Created by Kalley Lasola 2022</p>
         </div>
     </div>
 

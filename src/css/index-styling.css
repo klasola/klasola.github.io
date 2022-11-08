@@ -34,7 +34,7 @@ a {
 #projects-container,
 #contact-container {
     flex-direction: column;
-    padding: 5% 10% 5% 10%;
+    padding: 5% 12% 5% 12%;
 }
 
 .blinking {
@@ -52,7 +52,7 @@ a {
 .content-column {
     display: flex;
     flex-direction: column;
-    padding: 2%;
+    padding: 2% 0;
 }
 
 .content-row {
@@ -61,7 +61,7 @@ a {
 }
 
 .circle-img {
-    width: 100%;
+    width: 75%;
     border-radius: 50%;
     padding: 5%;
     box-shadow: #7cbe90 0px 0px 8px;
@@ -100,6 +100,12 @@ a {
 
 .half-column {
     width: 40%;
+}
+
+.img-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #footer-container {
@@ -191,10 +197,12 @@ a {
     font-family: 'Fira Sans', sans-serif;
     padding-right: 2.5rem !important;
     padding-left: 2.5rem !important;
+    cursor: pointer;
 }
 
-.nav-link:hover {
-    color: #5a8169;
+.nav-link:hover:not(.active){
+    color: #fff;
+    background: #7bbe90a3 !important
 }
 
 .text-info {

@@ -54,9 +54,9 @@ controller.move = function(attr, force) {
     } else {
         controller.incrementStep(attr, force);
 
-        // if (controller.collectedElement("star", controller.numStars)) {
-            
-        // }
+        if (controller.collectedElement("star", controller.numStars)) {
+            // 
+        }
         if (controller.collectedElement("speed", controller.numSpeeds)) {
             $('#message').text('SPEED UP');
             $('#message').removeClass('hidden');

@@ -41,8 +41,14 @@ controller.collectedElement = function(type, len) {
     return false;
 }
 
-function delay(time) {
+controller.delay = function(time) {
     return new Promise(resolve => setTimeout(resolve, time));
+}
+
+controller.flashMessage = function(text) {
+    $('#message').text(text);
+    $('#message').removeClass('hidden');
+    controller.delay(1500).then(() => $('#message').addClass('hidden'));
 }
 
 controller.move = function(attr, force) {
@@ -58,9 +64,7 @@ controller.move = function(attr, force) {
             // 
         }
         if (controller.collectedElement("speed", controller.numSpeeds)) {
-            $('#message').text('SPEED UP');
-            $('#message').removeClass('hidden');
-            delay(1500).then(() => $('#message').addClass('hidden'));
+            controller.flashMessage("SPEED UP");
             controller.incrementSpeed++;
         }
     }
@@ -133,6 +137,7 @@ controller.init = function() {
     controller.placeItems(controller.numStars, 'star', controller.starPath);
     controller.placeItems(controller.numSpeeds, 'speed', controller.speedUpPath);
     $('.start-button').unbind();
+    controller.flashMessage("USE ARROW KEYS");
 }
 
 controller.startKeyListeners = function() {

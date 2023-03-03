@@ -166,6 +166,14 @@ a {
 }
 
 @media only screen and (max-width: 530px) {
+  #game-container {
+    height: 800px;
+  }
+
+  .player {
+    height: 300px;
+  }
+
   .text-box {
     width: 90%;
   }

@@ -1,0 +1,193 @@
+/* PURPOSE: Styling for pokescores
+   AUTHOR: Kalley Lasola
+   DATE MODIFIED: March 2, 2023 */
+
+@font-face {
+  font-family: 'pkmn';
+  src: URL('/src/assets/font/PKMN\ RBYGSC.ttf') format('truetype');
+}
+
+* {
+  transition: all 1s ease;
+}
+
+body, html, #main-container {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'pkmn', monospace !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#game-container {
+  margin: 0 auto;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(47,217,176,1) 0%, rgba(143,229,209,1) 3%, rgba(53,213,187,1) 9%, rgba(143,229,209,1) 14%, rgba(142,231,212,1) 19%, rgba(41,188,104,1) 26%, rgba(175,238,129,1) 45%, rgba(184,234,157,1) 55%, rgba(167,230,137,1) 61%, rgba(116,204,101,1) 67%, rgba(178,236,153,1) 75%, rgba(184,234,157,1) 81%, rgba(116,204,101,1) 91%, rgba(133,185,111,1) 100%);
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid black;
+}
+
+.player {
+  width: 100%;
+  padding: 2% 5%;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.game-text-container {
+  width: 100%;
+  height: 200px;
+  border-top: 5px solid black;
+  background-color: #9ea1c2;
+}
+
+.text-box {
+  background-color: #ffffffbd;
+  border-radius: 15px;
+  border: 2px solid black;
+  width: 96%;
+  height: 78%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.player-info {
+  width: 45%;
+  height: 70%;
+  background: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.player-icon {
+  width: 55%;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-name: bounce;
+  animation-timing-function: linear;
+}
+
+.player-icon>img {
+  width: 175px;
+}
+
+#p1 .player-icon>img{
+  animation: 1s ease-out 0s 1 slideInFromRight;
+  margin-left: 30px;
+}
+
+#p2 .player-icon>img{
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  margin-right: 30px;
+}
+
+.dead {
+  filter: grayscale(1);
+}
+
+.player-info-row {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.player-info-row>div {
+  width: 50%;
+  display: flex;
+  margin: auto;
+}
+
+.details, .score {
+  justify-content: right;
+}
+
+.symbols>img {
+  width: 50px;
+}
+
+.rainbow_text_animated {
+  background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 6s ease-in-out infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rainbow_animation {
+  0%,100% {
+      background-position: 0 0;
+  }
+
+  50% {
+      background-position: 100% 0;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .text-box {
+    width: 90%;
+  }
+
+  .player-info {
+    width: 65%;
+  }
+  
+  .player-icon {
+    width: 35%;
+  }
+
+  .player-icon>img {
+    width: 115px;
+  }
+
+  .symbols>img {
+    width: 25px;
+  }
+
+  .player-info {
+    height: 50%;
+    font-size: 12px;
+  }
+}

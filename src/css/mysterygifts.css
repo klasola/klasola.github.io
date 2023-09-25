@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'pkmn';
+  src: URL('/src/assets/font/PKMN\ RBYGSC.ttf') format('truetype');
+}
+
+body, html, #main-container {
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-family: 'pkmn', monospace !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gift-container {
+  flex-direction: column;
+}
+
+.gift-img {
+  max-width: 185px;
+  transition: all 1s;
+  padding: 20px
+}
+
+.gift-img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 530px) {
+  .centered {
+    flex-direction: column;
+  }
+}

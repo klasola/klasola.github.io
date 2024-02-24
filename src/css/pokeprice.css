@@ -1,0 +1,89 @@
+/* PURPOSE: Styling for Pokeprice
+   AUTHOR: Kalley Lasola  */
+
+@font-face {
+  font-family: 'pkmn';
+  src: URL('/src/assets/font/PKMN\ RBYGSC.ttf') format('truetype');
+}
+
+* {
+  transition: all 1s ease;
+}
+
+body, html, #main-container {
+  box-sizing: border-box;
+}
+
+body, button {
+  margin: 0;
+  font-family: 'pkmn', monospace !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+#main-container {
+  padding: 50px;
+}
+
+#game-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 210px;
+  max-width: 210px;
+  min-height: 166px;
+  max-height: 166px;
+}
+
+#question button {
+  width: 90%;
+  padding: 10px 0px;
+  margin: 10px 0px;
+}
+
+#scores {
+  width: 230px;
+}
+
+#scores span {
+  float: right;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pokemon {
+  padding: 5% 10%;
+  min-width: 100px;
+  max-width: 100px;
+  min-height: 166px;
+  max-height: 166px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 530px) {
+  #game-grid {
+    flex-direction: column;
+  }
+
+  #question {
+    border: 1px dotted black;
+    border-radius: 5px;
+    min-height: 230px;
+    max-height: 230px;
+  }
+}

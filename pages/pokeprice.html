@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Lower: Pokémon Version</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/src/css/pokeprice.css">
+</head>
+<body>
+    <div id="main-container" class="centered">
+      <div id="scores">
+        Streak: <span id="streak"></span>
+        <br>
+        Highest streak: <span id="highest-streak"></span>
+      </div>
+      <div id="game-grid">
+        <div id="pokemon1" class="pokemon">
+          <p class="p-name"></p>
+          <img class="p-img">
+          <p class="p-weight">
+        </div>
+        <div id="question">
+          <div id="message"></div>
+          <span id="q-content">
+            Is <span id="q-name-1"></span>
+            <br>
+            <button id="fatter-button">FATTER</button>
+            <br>
+            or
+            <br>
+            <button id="skinnier-button">SKINNIER</button>
+            <br>
+            than <span id="q-name-2"></span>
+          </span>
+        </div>
+        <div id="pokemon2" class="pokemon">
+          <p class="p-name"></p>
+          <img class="p-img">
+          <p class="p-weight"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+    <script src="/src/js/pokeprice.js"></script>
+</body>
+</html>

@@ -32,6 +32,7 @@ a {
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 45px;
 }
 
 #question {
@@ -67,17 +68,21 @@ a {
 }
 
 .pokemon {
-  padding: 5% 10%;
-  min-width: 100px;
-  max-width: 100px;
+  padding: 0 10%;
+  width: 100%;
   min-height: 166px;
   max-height: 166px;
   text-align: center;
 }
 
+.shiny {
+  color: #ceb118;
+}
+
 @media only screen and (max-width: 530px) {
   #game-grid {
     flex-direction: column;
+    padding: 5px !important;
   }
 
   #question {
@@ -85,5 +90,10 @@ a {
     border-radius: 5px;
     min-height: 230px;
     max-height: 230px;
+    margin: 15px;
+  }
+
+  .pokemon {
+    margin-bottom: 15px;
   }
 }

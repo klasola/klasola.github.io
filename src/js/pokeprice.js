@@ -21,25 +21,52 @@ controller.getPokemon = async function(pokemonId) {
   return data;
 }
 
+controller.useShiny = function() {
+  // 10% chance
+  let num = controller.getRandNum(1, 20);
+  if (num == 5) {
+    return true;
+  }
+  else return false;
+}
+
 controller.getSprite = function(pokemon) {
   return pokemon.sprites.front_default;
+}
+
+controller.getShinySprite = function(pokemon) {
+  return pokemon.sprites.front_shiny;
 }
 
 controller.generatePokemon = async function() {
   // Populate first pokemon
   let p1 = await controller.getPokemon(controller.getRandNum(1, MAX_POKEMON));
   let p1_name = p1.name.charAt(0).toUpperCase() + p1.name.slice(1);
-  $("#pokemon1 .p-name").html(p1_name);
+  if (controller.useShiny()) {
+    $("#pokemon1 .p-name").html("&#9734; "+p1_name+" &#9734;");
+    $("#pokemon1 .p-name").addClass('shiny');
+    $("#pokemon1 img").attr("src", controller.getShinySprite(p1));
+  } else {
+    $("#pokemon1 .p-name").html(p1_name);
+    $("#pokemon1 .p-name").removeClass('shiny');
+    $("#pokemon1 img").attr("src", controller.getSprite(p1));
+  }
   $("#q-name-1").html(p1_name);
-  $("#pokemon1 img").attr("src", controller.getSprite(p1));
   controller.p1_weight = Math.round(p1.weight / 4.536);
 
   // Populate second pokemon
   let p2 = await controller.getPokemon(controller.getRandNum(1, MAX_POKEMON));
   let p2_name = p2.name.charAt(0).toUpperCase() + p2.name.slice(1);
-  $("#pokemon2 .p-name").html(p2_name);
+  if (controller.useShiny()) {
+    $("#pokemon2 .p-name").html("&#9734; "+p2_name+" &#9734;");
+    $("#pokemon2 .p-name").addClass('shiny');
+    $("#pokemon2 img").attr("src", controller.getShinySprite(p2));
+  } else {
+    $("#pokemon2 .p-name").html(p2_name);
+    $("#pokemon2 .p-name").removeClass('shiny');
+    $("#pokemon2 img").attr("src", controller.getSprite(p2));
+  }
   $("#q-name-2").html(p2_name);
-  $("#pokemon2 img").attr("src", controller.getSprite(p2));
   controller.p2_weight = Math.round(p2.weight / 4.536);
 }
 
@@ -96,7 +123,7 @@ controller.updateDisplay = function() {
 
 controller.setListeners = function() {
   $("#fatter-button").click(function() {
-    if (controller.p1_weight > controller.p2_weight) {
+    if (controller.p1_weight >= controller.p2_weight) {
       controller.state = true;
     } else {
       controller.state = false;
@@ -105,7 +132,7 @@ controller.setListeners = function() {
   });
 
   $("#skinnier-button").click(function() {
-    if (controller.p1_weight < controller.p2_weight) {
+    if (controller.p1_weight <= controller.p2_weight) {
       controller.state = true;
     } else {
       controller.state = false;

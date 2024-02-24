@@ -42,7 +42,7 @@ controller.generatePokemon = async function() {
   // Populate first pokemon
   let p1 = await controller.getPokemon(controller.getRandNum(1, MAX_POKEMON));
   let p1_name = p1.name.charAt(0).toUpperCase() + p1.name.slice(1);
-  if (controller.useShiny()) {
+  if (controller.useShiny() && (p1.sprites.front_shiny)) {
     $("#pokemon1 .p-name").html("&#9734; "+p1_name+" &#9734;");
     $("#pokemon1 .p-name").addClass('shiny');
     $("#pokemon1 img").attr("src", controller.getShinySprite(p1));
@@ -57,7 +57,7 @@ controller.generatePokemon = async function() {
   // Populate second pokemon
   let p2 = await controller.getPokemon(controller.getRandNum(1, MAX_POKEMON));
   let p2_name = p2.name.charAt(0).toUpperCase() + p2.name.slice(1);
-  if (controller.useShiny()) {
+  if (controller.useShiny() && (p2.sprites.front_shiny)) {
     $("#pokemon2 .p-name").html("&#9734; "+p2_name+" &#9734;");
     $("#pokemon2 .p-name").addClass('shiny');
     $("#pokemon2 img").attr("src", controller.getShinySprite(p2));

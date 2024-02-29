@@ -1,0 +1,20 @@
+
+body, html, #main-container {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #c0c0c0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpotiFetch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap" rel="stylesheet">
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="/src/css/spot.css">
+</head>
+<body>
+    <div id="main-container" class="centered">
+      <div class="headline">SpotiFetch</div>
+      <div id="icon-container">
+        <img src="/src/assets/img/spot.png">
+      </div>
+      <div id="input-container" class="centered">
+        <div>How are you feeling, human?</div>
+        <div id="inputs">
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="danceability">
+            <label for="danceability" class="min-label">Happy</label>
+            <label for="danceability" class="max-label">Sad</label>
+          </div>
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="energy">
+            <label for="energy" class="min-label">Calm</label>
+            <label for="energy" class="max-label">Energetic</label>
+          </div>
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="instrumentalness">
+            <label for="instrumentalness" class="min-label">Focused</label>
+            <label for="instrumentalness" class="max-label">Scattered</label>
+          </div>
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="acousticness">
+            <label for="acousticness" class="min-label">Quiet</label>
+            <label for="acousticness" class="max-label">Chaotic</label>
+          </div>
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="valence">
+            <label for="valence" class="min-label">Peaceful</label>
+            <label for="valence" class="max-label">Angry</label>
+          </div>
+        </div>
+        <button class="cta-button">Go Fetch, Spot!</button>
+      </div>
+      <div id="recommendations-container" class="hidden">
+        <div class="return-button">↩ Back</div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+    <script src="/src/js/spot.js"></script>
+</body>
+</html>

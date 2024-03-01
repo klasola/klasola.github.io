@@ -1,0 +1,122 @@
+
+body, html, #main-container {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Madimi One", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#main-container {
+  background-color: #4a5759;
+  height: 100vh;
+}
+
+#icon-container {
+  max-width: 200px;
+  padding: 25px;
+}
+
+#icon-container img {
+  width: 100%;
+}
+
+#input-container {
+  background-color: #dedbd2;
+  border-radius: 5px;
+  padding: 12px;
+  color: #4a5759;
+}
+
+#inputs {
+  width: 100%;
+}
+
+#inputs input {
+  width: 100%;
+}
+
+.cta-button {
+  font-family: "Madimi One", sans-serif;
+  background-color: #4b5759;
+  color: #e0e0e0;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  transition: background-color 0.5s;
+}
+
+.cta-button:hover {
+  cursor: pointer;
+  background-color: #2f383a;
+  color: #e0e0e0;
+}
+
+.headline {
+  font-family: "Rubik Scribble", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  color: #b0c4b1;
+}
+
+.hidden {
+  display: none;
+}
+
+.min-label {
+  float: left;
+}
+
+.max-label {
+  float: right;
+}
+
+.recommendation {
+  display: flex;
+  text-align: right;
+  width: 300px;
+  justify-content: space-between;
+  margin: 12px;
+}
+
+.album-img {
+  width: 60px;
+  border-radius: 5px;
+}
+
+.track-details {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  color: #e0e0e0;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.artist {
+  color: #b0c4b1;
+}
+
+.return-button {
+  color: #e0e0e0;
+  padding: 5px 10px;
+  width: fit-content;
+  cursor: pointer;
+}

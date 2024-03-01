@@ -42,6 +42,7 @@ a {
 
 #inputs {
   width: 100%;
+  margin-top: 10px;
 }
 
 #inputs input {
@@ -53,7 +54,6 @@ a {
   background-color: #4b5759;
   color: #e0e0e0;
   padding: 10px;
-  margin-top: 15px;
   border-radius: 5px;
   border: none;
   width: 100%;

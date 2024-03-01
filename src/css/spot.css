@@ -25,7 +25,7 @@ a {
 }
 
 #icon-container {
-  max-width: 200px;
+  max-width: 160px;
   padding: 25px;
 }
 
@@ -70,7 +70,7 @@ a {
   font-family: "Rubik Scribble", system-ui;
   font-weight: 400;
   font-style: normal;
-  font-size: 40px;
+  font-size: 32px;
   color: #b0c4b1;
 }
 
@@ -80,10 +80,12 @@ a {
 
 .min-label {
   float: left;
+  padding-bottom: 15px;
 }
 
 .max-label {
   float: right;
+  padding-bottom: 15px;
 }
 
 .recommendation {

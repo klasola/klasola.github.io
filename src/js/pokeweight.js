@@ -8,6 +8,9 @@ controller.p2_weight = 0;
 controller.state = "";
 controller.streak = 0;
 controller.highestStreak = 0;
+controller.weightConversion = 4.536;
+controller.qContentSelector = "#q-content";
+controller.messageSelector = "#message";
 
 controller.getRandNum = function(min, max) {
   min = Math.ceil(min);
@@ -38,36 +41,20 @@ controller.getShinySprite = function(pokemon) {
   return pokemon.sprites.front_shiny;
 }
 
-controller.generatePokemon = async function() {
-  // Populate first pokemon
-  let p1 = await controller.getPokemon(controller.getRandNum(1, MAX_POKEMON));
-  let p1_name = p1.name.charAt(0).toUpperCase() + p1.name.slice(1);
-  if (controller.useShiny() && (p1.sprites.front_shiny)) {
-    $("#pokemon1 .p-name").html("&#9734; "+p1_name+" &#9734;");
-    $("#pokemon1 .p-name").addClass('shiny');
-    $("#pokemon1 img").attr("src", controller.getShinySprite(p1));
+controller.generatePokemon = async function(index, pWeight) {
+  let mon = await controller.getPokemon(controller.getRandNum(1, MAX_POKEMON));
+  let mon_name = mon.name.charAt(0).toUpperCase() + mon.name.slice(1);
+  if (controller.useShiny() && (mon.sprites.front_shiny)) {
+    $("#pokemon"+index+" .p-name").html("&#9734; "+mon_name+" &#9734;");
+    $("#pokemon"+index+" .p-name").addClass('shiny');
+    $("#pokemon"+index+" img").attr("src", controller.getShinySprite(mon));
   } else {
-    $("#pokemon1 .p-name").html(p1_name);
-    $("#pokemon1 .p-name").removeClass('shiny');
-    $("#pokemon1 img").attr("src", controller.getSprite(p1));
+    $("#pokemon"+index+" .p-name").html(mon_name);
+    $("#pokemon"+index+" .p-name").removeClass('shiny');
+    $("#pokemon"+index+" img").attr("src", controller.getSprite(mon));
   }
-  $("#q-name-1").html(p1_name);
-  controller.p1_weight = Math.round(p1.weight / 4.536);
-
-  // Populate second pokemon
-  let p2 = await controller.getPokemon(controller.getRandNum(1, MAX_POKEMON));
-  let p2_name = p2.name.charAt(0).toUpperCase() + p2.name.slice(1);
-  if (controller.useShiny() && (p2.sprites.front_shiny)) {
-    $("#pokemon2 .p-name").html("&#9734; "+p2_name+" &#9734;");
-    $("#pokemon2 .p-name").addClass('shiny');
-    $("#pokemon2 img").attr("src", controller.getShinySprite(p2));
-  } else {
-    $("#pokemon2 .p-name").html(p2_name);
-    $("#pokemon2 .p-name").removeClass('shiny');
-    $("#pokemon2 img").attr("src", controller.getSprite(p2));
-  }
-  $("#q-name-2").html(p2_name);
-  controller.p2_weight = Math.round(p2.weight / 4.536);
+  $("#q-name-"+index).html(mon_name);
+  controller[pWeight] = Math.round(mon.weight / 4.536);
 }
 
 controller.updateStreaks = function() {
@@ -94,6 +81,16 @@ controller.refresh = function() {
   }, 500);
 }
 
+controller.refreshDisplay() = function(message) {
+  // Hide display while counters are updated
+  $(controller.qContentSelector).hide();
+  $(controller.messageSelector).html(message);
+  controller.showWeights();
+  setTimeout(function() {
+    controller.refresh();
+  }, 3000);
+}
+
 controller.updateDisplay = function() {
   if (controller.state) {
     // Correct
@@ -102,22 +99,12 @@ controller.updateDisplay = function() {
       controller.highestStreak = controller.streak;
     }
     controller.updateStreaks();
-    $("#q-content").hide();
-    $("#message").html("Correct!");
-    controller.showWeights();
-    setTimeout(function() {
-      controller.refresh();
-    }, 3000);
+    controller.refreshDisplay("Correct!");
   } else {
     // Incorrect
     controller.streak = 0;
     controller.updateStreaks();
-    $("#q-content").hide();
-    $("#message").html("Wrong!");
-    controller.showWeights();
-    setTimeout(function() {
-      controller.refresh();
-    }, 3000);
+    controller.refreshDisplay("Wrong!");
   }
 }
 
@@ -142,7 +129,8 @@ controller.setListeners = function() {
 }
 
 $( document ).ready(async function() {
-  controller.generatePokemon();
+  controller.generatePokemon(1, p1_weight);
+  controller.generatePokemon(2, p2_weight);
   controller.setListeners();
   controller.updateStreaks();
 });

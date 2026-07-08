@@ -40,26 +40,24 @@ controller.getRecommendation = async (token) => {
 }
 
 controller.displayRecommendations = () => {
-  var recommendationsEl = $('#recommendations-container');
+  let recommendationsEl = $('#recommendations-container');
   recommendationsEl.removeClass('hidden');
   $('#input-container').addClass('hidden');
-  var tracks = controller.recommendations;
+  let tracks = controller.recommendations;
   console.log(tracks);
   for(i=0; i<tracks.length; i++) {
-    var title = tracks[i].name;
-    var artist = tracks[i].artists[0].name;
-    var albumImg = tracks[i].album.images[0].url;
-    var link = tracks[i].external_urls.spotify;
+    let title = tracks[i].name;
+    let artist = tracks[i].artists[0].name;
+    let albumImg = tracks[i].album.images[0].url;
+    let link = tracks[i].external_urls.spotify;
     recommendationsEl.append('<div class="recommendation"><a target="_blank" href="'+link+'"><img src="'+albumImg+'" class="album-img"></a><div class="track-details"><span class="title">'+title+'</span><span class="artist">'+artist+'</span></div></div>');
   }
 }
 
 controller.setInputListeners = (id) => {
-  var slider = $('#' + id);
+  let slider = $('#' + id);
   slider.on('input change', function() {
     controller.factors[id] = parseInt(this.value) / 100;
-    console.log(controller.factors);
-    console.log(this.value);
   });
 }
 
